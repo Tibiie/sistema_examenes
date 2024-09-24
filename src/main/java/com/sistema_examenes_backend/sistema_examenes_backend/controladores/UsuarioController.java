@@ -31,7 +31,7 @@ public class UsuarioController {
     
     @PostMapping("/")
     public Usuario guardarUsuario(@RequestBody Usuario usuario) throws Exception {
-        Set<UsuarioRol> roles = new HashSet<>();
+        Set<UsuarioRol> usuarioRoles = new HashSet<>();
     
         Rol rol = new Rol();
         rol.setRolId(2L);
@@ -40,8 +40,10 @@ public class UsuarioController {
         UsuarioRol usuarioRol = new UsuarioRol();
         usuarioRol.setUsuario(usuario);
         usuarioRol.setRol(rol);
+
+        usuarioRoles.add(usuarioRol);
     
-        return usuarioService.guardarUsuario(usuario, roles);        
+        return usuarioService.guardarUsuario(usuario, usuarioRoles);        
     }    
 
     @GetMapping("/{username}")
