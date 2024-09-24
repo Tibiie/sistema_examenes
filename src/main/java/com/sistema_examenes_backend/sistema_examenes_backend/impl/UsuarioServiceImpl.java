@@ -1,23 +1,25 @@
-package com.sistema_examenes_backend.servicios.impl;
+package com.sistema_examenes_backend.sistema_examenes_backend.impl;
 
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sistema_examenes_backend.repositorios.RolRepository;
-import com.sistema_examenes_backend.repositorios.UsuarioRepository;
-import com.sistema_examenes_backend.servicios.UsuarioService;
+import com.sistema_examenes_backend.sistema_examenes_backend.repositorios.RolRepository;
+import com.sistema_examenes_backend.sistema_examenes_backend.repositorios.UsuarioRepository;
+import com.sistema_examenes_backend.sistema_examenes_backend.servicios.UsuarioService;
 import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Usuario;
 import com.sistema_examenes_backend.sistema_examenes_backend.modelos.UsuarioRol;
 
 @Service
 public class UsuarioServiceImpl implements  UsuarioService{
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private RolRepository rolRepository;
+    private final RolRepository rolRepository;
+
+    public UsuarioServiceImpl(RolRepository rolRepository, UsuarioRepository usuarioRepository) {
+        this.rolRepository = rolRepository;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Override
     public Usuario guardarUsuario(Usuario usuario, Set<UsuarioRol> usuarioRoles) throws Exception {
