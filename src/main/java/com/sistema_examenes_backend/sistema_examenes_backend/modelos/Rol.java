@@ -2,6 +2,7 @@ package com.sistema_examenes_backend.sistema_examenes_backend.modelos;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,5 +48,4 @@ public class Rol {
     public void setUsuarioRoles(Set<UsuarioRol> usuarioRoles) {
         this.usuarioRoles = usuarioRoles;
     } 
-
 }
