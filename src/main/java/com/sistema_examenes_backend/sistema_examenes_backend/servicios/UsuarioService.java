@@ -1,4 +1,4 @@
-package com.sistema_examenes_backend.servicios;
+package com.sistema_examenes_backend.sistema_examenes_backend.servicios;
 
 import java.util.Set;
 
