@@ -1,4 +1,4 @@
-package com.sistema_examenes_backend.sistema_examenes_backend.impl;
+package com.sistema_examenes_backend.sistema_examenes_backend.servicios.impl;
 
 import java.util.Set;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.sistema_examenes_backend.sistema_examenes_backend.repositorios.RolRepository;
 import com.sistema_examenes_backend.sistema_examenes_backend.repositorios.UsuarioRepository;
 import com.sistema_examenes_backend.sistema_examenes_backend.servicios.UsuarioService;
+import com.sistema_examenes_backend.sistema_examenes_backend.excepciones.UsuarioFoundException;
 import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Usuario;
 import com.sistema_examenes_backend.sistema_examenes_backend.modelos.UsuarioRol;
 
@@ -24,12 +25,12 @@ public class UsuarioServiceImpl implements  UsuarioService{
     @Override
     public Usuario guardarUsuario(Usuario usuario, Set<UsuarioRol> usuarioRoles) throws Exception {
         Usuario usuarioLocal = usuarioRepository.findByUsername(usuario.getUsername());
-        if (usuarioLocal != null) {
+        if(usuarioLocal != null){
             System.out.println("El usuario ya existe");
-            throw new Exception("El usuario ya se encuentra presente");
+            throw new UsuarioFoundException("El usuario ya esta presente");
         }
         else{
-            for(UsuarioRol usuarioRol: usuarioRoles){
+            for(UsuarioRol usuarioRol:usuarioRoles){
                 rolRepository.save(usuarioRol.getRol());
             }
             usuario.getUsuarioRoles().addAll(usuarioRoles);
@@ -37,6 +38,7 @@ public class UsuarioServiceImpl implements  UsuarioService{
         }
         return usuarioLocal;
     }
+//yes
 
     @Override
     public void eliminarUsuario(Long usuarioId) {

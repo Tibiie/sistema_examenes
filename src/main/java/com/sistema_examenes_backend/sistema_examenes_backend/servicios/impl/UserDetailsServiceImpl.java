@@ -1,13 +1,15 @@
-package com.sistema_examenes_backend.sistema_examenes_backend.impl;
+package com.sistema_examenes_backend.sistema_examenes_backend.servicios.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Usuario;
 import com.sistema_examenes_backend.sistema_examenes_backend.repositorios.UsuarioRepository;
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Autowired
