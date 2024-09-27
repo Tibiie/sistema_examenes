@@ -5,8 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Categoria;
+import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Examen;
 import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Pregunta;
 import com.sistema_examenes_backend.sistema_examenes_backend.repositorios.PreguntaRepository;
 import com.sistema_examenes_backend.sistema_examenes_backend.servicios.PreguntaService;
@@ -43,6 +42,16 @@ public class PreguntaServiceImpl implements PreguntaService{
     @Override
     public Set<Pregunta> obtenerPreguntas() {
         return new LinkedHashSet<>(preguntaRepository.findAll());
+    }
+
+    @Override
+    public Set<Pregunta> obtenerPreguntasDelExamen(Examen examen) {
+        return preguntaRepository.findByExamen(examen);
+    }
+
+    @Override
+    public Pregunta listarPregunta(Long preguntaId) {
+        throw new UnsupportedOperationException("Unimplemented method 'listarPregunta'");
     }
 
 }

@@ -7,11 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.sistema_examenes_backend.sistema_examenes_backend.excepciones.UsuarioFoundException;
-import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Rol;
-import com.sistema_examenes_backend.sistema_examenes_backend.modelos.Usuario;
-import com.sistema_examenes_backend.sistema_examenes_backend.modelos.UsuarioRol;
 import com.sistema_examenes_backend.sistema_examenes_backend.servicios.UsuarioService;
 
 @SpringBootApplication
